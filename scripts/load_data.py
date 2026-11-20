@@ -21,6 +21,7 @@ LISTINGS_COLS = [
     "number_of_reviews",
     "host_id",
     "host_is_superhost",
+    "instant_bookable",
 ]
 
 CALENDAR_COLS = ["listing_id", "date", "available", "minimum_nights"]
@@ -35,6 +36,9 @@ df_listings["price"] = pd.to_numeric(
 )
 
 df_listings["host_is_superhost"] = df_listings["host_is_superhost"].map(
+    {"t": True, "f": False}
+)
+df_listings["instant_bookable"] = df_listings["instant_bookable"].map(
     {"t": True, "f": False}
 )
 
